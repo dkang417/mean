@@ -2,9 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const path = require('path');
+
 const postRoutes = require('./routes/posts');
+const userRoutes = require('./routes/user');
+
 // eph9YlbbFBIRZXWu
 const app = express();
+
 
 
 mongoose.connect("mongodb+srv://dkang417:eph9YlbbFBIRZXWu@cluster0-r3dvt.mongodb.net/node-angular?retryWrites=true")
@@ -34,5 +38,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/posts", postRoutes);
+app.use('/api/user', userRoutes);
 
 module.exports = app;

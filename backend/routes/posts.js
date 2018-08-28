@@ -1,5 +1,6 @@
 const express = require("express");
-
+const Post = require("../models/post");
+const router = express.Router();
 // to upload image
 const multer = require('multer');
 const MIME_TYPE_MAP = {
@@ -24,10 +25,6 @@ const storage = multer.diskStorage({
 });
 
 
-
-const Post = require("../models/post");
-
-const router = express.Router();
 
 router.post("", multer({ storage: storage }).single('image'), (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
