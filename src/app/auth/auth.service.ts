@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+
   private isAuthenticated = false;
   private token: string;
   private authStatusListener = new Subject<boolean>();
